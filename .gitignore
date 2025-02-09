@@ -1,0 +1,8 @@
+.idea
+.venv
+.git
+logs
+.env
+__pycache__
+admins.txt
+base.db
