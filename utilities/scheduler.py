@@ -67,7 +67,6 @@ async def today_schedule_get():
 	for i in range(len(schedule)):
 		endLesson = datetime.datetime.strptime(schedule[i]['endLesson'], '%Y-%m-%d %H:%M:%S')
 		beginLesson = datetime.datetime.strptime(schedule[i]['beginLesson'], '%Y-%m-%d %H:%M:%S')
-		await schedule_send(texts[i], builders[i], endLesson)
 		scheduler.add_job(
 			func=schedule_send,
 			args=[texts[i], builders[i], endLesson],
@@ -84,7 +83,6 @@ async def today_schedule_get():
 
 
 async def schedule_get_job():
-	await today_schedule_get()
 	scheduler.add_job(
 		func=today_schedule_get,
 		trigger='cron',
