@@ -64,7 +64,7 @@ async def schedule_get():
 		attendance.append(result)
 
 		texts.append(
-			f'Номер пары: {number + 1}\n'
+			f'ID пары: {number + 1}\n'
 			f'Дисциплина: {item["discipline"]}\n'
 			f'Преподаватель: {item["lecturer_title"]}\n'
 			f'Аудитория: {item["auditorium"]}\n'
@@ -79,9 +79,9 @@ async def schedule_get():
 				builder.button(text=f'{students[i][1]}', callback_data=f'student_surname|{number}|{students[i][0]}')
 				builder.button(text=f'Явка', callback_data=f'student|{number}|{students[i][0]}|present')
 				builder.button(text=f'✅ Н/я н/у', callback_data=f'student|{number}|{students[i][0]}|absent')
-				builder.button(text=f'Н/я ув.', callback_data=f'student|{number}|{students[i][0]}|valid_reason')
+				# builder.button(text=f'Н/я ув.', callback_data=f'student|{number}|{students[i][0]}|valid_reason')
 
-		builder.adjust(4, repeat=True)
+		builder.adjust(3, repeat=True)
 
 		builders.append(builder)
 

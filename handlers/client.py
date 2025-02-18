@@ -66,15 +66,15 @@ async def callback_student(query: CallbackQuery):
 				if attend == 'present':
 					button[1].text = f'✅ Явка'
 					button[2].text = f'Н/я н/у'
-					button[3].text = f'Н/я ув.'
+					# button[3].text = f'Н/я ув.'
 				elif attend == 'absent':
 					button[1].text = f'Явка'
 					button[2].text = f'✅ Н/я н/у'
-					button[3].text = f'Н/я ув.'
+					# button[3].text = f'Н/я ув.'
 				elif attend == 'valid_reason':
 					button[1].text = f'Явка'
 					button[2].text = f'Н/я н/у'
-					button[3].text = f'✅ Н/я ув.'
+					# button[3].text = f'✅ Н/я ув.'
 
 		try:
 			await query.message.edit_reply_markup(reply_markup=InlineKeyboardMarkup(inline_keyboard=inline_keyboard))
@@ -87,8 +87,8 @@ async def callback_student(query: CallbackQuery):
 
 			await query.answer(text='Отметил, брат.')
 		except:
-			logger.error(f'USER={query.from_user.id}, MESSAGE="Attendance not changed."')
 			await query.answer(text='Уже отмечен, брат.')
+			logger.error(f'USER={query.from_user.id}, MESSAGE="Attendance not changed."')
 
 		logger.info(f'USER={query.from_user.id}, MESSAGE=""')
 	except Exception as e:
