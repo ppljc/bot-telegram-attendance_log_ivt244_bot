@@ -13,20 +13,6 @@ router = Router(name='client')
 
 
 # Функции
-@router.message(Command(commands=['start'], ignore_case=True))
-async def message_start(message: Message):
-	try:
-		await message.delete()
-
-		await message.answer(
-			text='Бот',
-		)
-
-		logger.info(f'USER={message.from_user.id}, MESSAGE=""')
-	except Exception as e:
-		logger.error(f'USER={message.from_user.id}, MESSAGE="{e}"')
-
-
 @router.message(Command(commands=['today_result'], ignore_case=True))
 async def message_day_result(message: Message):
 	try:

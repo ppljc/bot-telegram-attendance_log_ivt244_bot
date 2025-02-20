@@ -17,8 +17,7 @@ from utilities.middlewares import StandardMiddleware
 # Функции при запуске и выключении бота
 async def on_startup():
 	await bot.set_my_commands(commands=[
-		BotCommand(command='/start', description='Запустить/Перезапустить бота'),
-		BotCommand(command='/today_result', description='Посещаемость на сегодня')
+		BotCommand(command='/today_result', description='Посещаемость за сегодня')
 	])
 
 	bot_user = await bot.get_me()
